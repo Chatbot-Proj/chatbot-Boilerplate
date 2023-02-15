@@ -1,0 +1,61 @@
+version: "2.0"
+rules:
+
+- rule: Ask for date and time
+  steps:
+  - intent: book_appointment
+  - action: utter_ask_date_time
+  - active_loop: action_book_appointment
+  - slot_was_set:
+    - requested_slot: date
+
+- rule: Ask for service
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_services
+  - action: action_get_services
+  - intent: book_appointment
+  - action: utter_ask_service
+  - active_loop: action_book_appointment
+  - slot_was_set:
+    - requested_slot: service
+
+- rule: Provide available dates
+  steps:
+  - intent: inform
+    entities:
+    - service: haircut
+  - action: action_get_available_dates
+  - active_loop: action_book_appointment
+  - slot_was_set:
+    - requested_slot: date
+
+- rule: Provide available times
+  steps:
+  - intent: inform
+    entities:
+    - service: haircut
+    - date: 2023-02-28
+  - action: action_get_available_times
+  - active_loop: action_book_appointment
+  - slot_was_set:
+    - requested_slot: time
+
+- rule: Confirm appointment and provide location
+  steps:
+  - intent: affirm
+  - active_loop: action_book_appointment
+  - action: action_confirm_appointment
+  - action: utter_confirm_appointment
+  - action: utter_ask_location
+
+- rule: Handle negative confirmation
+  steps:
+  - intent: deny
+  - action: action_restart
+
+- rule: Handle fallbacks
+  steps:
+  - intent: fallback
+  - action: utter_unclear

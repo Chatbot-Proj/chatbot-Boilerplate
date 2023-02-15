@@ -1,0 +1,80 @@
+version: "2.0"
+
+nlu:
+- intent: book_appointment
+  examples: |
+    - Can I book an appointment for a [haircut](service) on [Friday](date) at [2 pm](time)?
+    - I need to schedule an appointment for a [beard trim](service) next [Tuesday](date) at [4 pm](time)
+    - Is there availability to book a [haircut and shave](service) on [Thursday](date) at [11 am](time)?
+
+- intent: get_services
+  examples: |
+    - What services do you offer?
+    - Can you tell me more about your haircuts?
+    - What types of shaves do you provide?
+
+- intent: get_opening_hours
+  examples: |
+    - What are your opening hours?
+    - When are you open?
+    - What time do you close on weekends?
+
+- intent: cancel_appointment
+  examples: |
+    - I need to cancel my appointment for [Tuesday](date) at [2 pm](time)
+    - Can I reschedule my appointment for next week instead?
+    - I won't be able to make my appointment, can you cancel it?
+
+- intent: get_prices
+  examples: |
+    - How much does a haircut cost?
+    - What's the price for a beard trim?
+    - Do you have any specials or discounts?
+
+- intent: get_stylists
+  examples: |
+    - Who are your barbers?
+    - Can you recommend a good stylist for a fade?
+    - Do you have any female barbers?
+
+- intent: get_location
+  examples: |
+    - Where are you located?
+    - What's your address?
+    - How do I get to your barbershop?
+
+- intent: get_recommendation
+  examples: |
+    - What's your most popular haircut?
+    - Can you recommend a good haircut for thinning hair?
+    - Which haircut is best for a round face?
+
+- intent: get_feedback
+  examples: |
+    - How was your experience at the barbershop?
+    - Did you like your haircut?
+    - Can you rate your barber on a scale of 1 to 5?
+
+- intent: get_wait_time
+  examples: |
+    - How long is the wait for a walk-in haircut?
+    - What's the current wait time for appointments?
+    - Can I get a haircut immediately?
+
+- intent: make_complaint
+  examples: |
+    - I'm not happy with my haircut.
+    - Can you fix my uneven hair?
+    - My hair is shorter than I wanted, can you help?
+
+- intent: thank_you
+  examples: |
+    - Thank you for the great haircut!
+    - I really appreciate your service.
+    - You did an amazing job!
+
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - See you later
+    - Bye

@@ -1,0 +1,86 @@
+version: "2.0"
+
+intents:
+- book_appointment
+- cancel_appointment
+- get_feedback
+- get_location
+- get_opening_hours
+- get_prices
+- get_recommendation
+- get_services
+- get_stylists
+- get_wait_time
+- goodbye
+- make_complaint
+- thank_you
+
+entities:
+- service
+- date
+- time
+
+responses:
+  utter_greet:
+  - text: "Hello! Welcome to our barbershop. How can we assist you today?"
+
+  utter_goodbye:
+  - text: "Goodbye! Thanks for choosing our barbershop. We hope to see you again soon."
+
+  utter_ask_service:
+  - text: "Which service would you like to book an appointment for?"
+
+  utter_ask_date:
+  - text: "What date would you like to book the appointment for?"
+
+  utter_ask_time:
+  - text: "What time would you like to book the appointment for?"
+
+  utter_confirmation:
+  - text: "Got it. We've scheduled your appointment for a [haircut](service) on [Friday, February 24th](date) at [2pm](time). Is that correct?"
+
+  utter_reschedule:
+  - text: "No problem. What date and time would you like to reschedule for?"
+
+  utter_cancel:
+  - text: "Sorry to hear that. We've cancelled your appointment for a [haircut](service) on [Tuesday, March 1st](date) at [2pm](time). Is there anything else we can help you with?"
+
+  utter_recommendation:
+  - text: "Based on your input, I would recommend a textured crop. This is a short, layered cut that adds volume and texture to thinning hair. Would you like to schedule an appointment for a textured crop with one of our stylists?"
+
+  utter_feedback:
+  - text: "Thanks for your feedback. We're always looking for ways to improve our service. Is there anything else we can do to help?"
+
+  utter_wait_time:
+  - text: "The current wait time for a walk-in haircut is about 30 minutes. Would you like to schedule an appointment instead?"
+
+  utter_complaint:
+  - text: "I'm sorry to hear that you're not happy with your haircut. We'll do everything we can to make it right. Can you tell me more about what's wrong?"
+
+  utter_location:
+  - text: "We're located at 123 Main Street, right next to the coffee shop. We look forward to seeing you soon!"
+
+  utter_prices:
+  - text: "Our haircuts start at $20, and our beard trims start at $15. We also offer discounts for students and seniors. Is there anything else you'd like to know?"
+
+  utter_stylists:
+  - text: "We have a team of experienced barbers who specialize in different types of haircuts and shaves. Our stylist Jane is particularly good with fades. Is there a specific stylist you'd like to book with?"
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_ask_service
+- utter_ask_date
+- utter_ask_time
+- utter_confirmation
+- utter_reschedule
+- utter_cancel
+- utter_recommendation
+- utter_feedback
+- utter_wait_time
+- utter_complaint
+- utter_location
+- utter_prices
+- utter_stylists
+- action_book_appointment
+- action_send_reminder
