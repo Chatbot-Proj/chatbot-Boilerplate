@@ -1,41 +1,30 @@
-## greet and offer help
-* greet
-  - utter_greet
-  - utter_offers_help
+version: "3.1"
 
-## provide information about services
-* get_services
-  - action_get_services
-  - utter_provide_services
+stories:
 
-## book appointment with default date and time
-* book_appointment{"service": "haircut"}
-  - slot{"service": "haircut"}
-  - slot{"date": "today"}
-  - slot{"time": "3pm"}
-  - action_book_appointment
-  - utter_ask_location
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
 
-## book appointment with specific date and time
-* book_appointment{"service": "beard trim", "date": "2023-02-21", "time": "2pm"}
-  - slot{"service": "beard trim"}
-  - slot{"date": "2023-02-21"}
-  - slot{"time": "2pm"}
-  - action_book_appointment
-  - utter_ask_location
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
 
-## confirm appointment and provide location
-* inform{"location": "123 Main St"}
-  - slot{"location": "123 Main St"}
-  - action_confirm_appointment
-  - utter_confirm_appointment
-  - action_send_reminder
-
-## ask for location
-* ask_location
-  - utter_ask_location
-
-## handle unexpected input
-* fallback
-  - utter_unclear
-  - utter_offers_help
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
